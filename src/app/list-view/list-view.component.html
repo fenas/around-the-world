@@ -1,0 +1,38 @@
+<div class="cardsection">
+  <!--Card-->
+  <mdb-card *ngFor="let country of countryList">
+    <!--Card image-->
+    <div class="view overlay waves-light" mdbWavesEffect>
+      <img src="{{ country.flag }}" class="rounded-circle" />
+    </div>
+    <!-- <div class="">
+      <img
+        src="https://mdbootstrap.com/img/Photos/Avatars/img%20%2831%29.jpg"
+        class="rounded-circle"
+      />
+    </div> -->
+    <!--/.Card image-->
+
+    <!--Card content-->
+    <mdb-card-body>
+      <!--Title-->
+      <mdb-card-title>
+        <h6>{{ country.name }}</h6>
+      </mdb-card-title>
+
+      <hr />
+
+      <!--Text-->
+      <mdb-card-text> </mdb-card-text>
+
+      <a class="link-text">
+        <h6 class="waves-light" mdbWavesEffect>
+          Read more
+          <i class="fas fa-chevron-right waves-light" mdbWavesEffect></i>
+        </h6>
+      </a>
+    </mdb-card-body>
+    <!--/.Card content-->
+  </mdb-card>
+  <!--/.Card-->
+</div>

@@ -1,0 +1,80 @@
+<section class="section">
+  <div class="section1">
+    <!-- title -->
+    <h1>AROUND THE WORLD</h1>
+  </div>
+
+  <div class="section2">
+    <!-- input -->
+    <div class="md-form input-group mb-3">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Search for a country"
+        aria-describedby="button-addon2"
+      />
+      <div class="input-group-append">
+        <button
+          mdbBtn
+          color="elegant"
+          size="md"
+          class="m-0 px-3 py-2"
+          type="button"
+          id="button-addon2"
+          mdbWavesEffect
+        >
+          Go!
+        </button>
+      </div>
+    </div>
+    <h1>OR</h1>
+    <div>seclect a region to explore</div>
+    <div class="regions">
+      <button
+        mdbBtn
+        type="button"
+        color="elegant"
+        mdbWavesEffect
+        (click)="onClick($event)"
+      >
+        Africa
+      </button>
+      <button
+        mdbBtn
+        type="button"
+        color="elegant"
+        mdbWavesEffect
+        (click)="onClick($event)"
+      >
+        Asia
+      </button>
+      <button
+        mdbBtn
+        type="button"
+        color="elegant"
+        mdbWavesEffect
+        (click)="onClick($event)"
+      >
+        Europe
+      </button>
+      <button
+        mdbBtn
+        type="button"
+        color="elegant"
+        mdbWavesEffect
+        (click)="onClick($event)"
+      >
+        Americas
+      </button>
+      <button
+        mdbBtn
+        type="button"
+        color="elegant"
+        mdbWavesEffect
+        (click)="onClick($event)"
+      >
+        Oceania
+      </button>
+    </div>
+  </div>
+</section>
