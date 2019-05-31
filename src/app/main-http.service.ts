@@ -18,7 +18,19 @@ export class MainHttpService {
     );
   }
 
-  // getCountryDetails() {
+  getCountriesByRegionalBloc(region: string) {
+    return this.http.get(
+      `https://restcountries.eu/rest/v2/regionalbloc/${region}?fields=name;capital;currencies;languages;region;subregion;flag`
+    );
+  }
 
-  // }
+  getCountryDetails(countryName) {
+    return this.http.get(
+      `https://restcountries.eu/rest/v2/name/${countryName}?fullText=true`
+    );
+  }
+
+  filterByLang(code: string) {
+    return this.http.get(`https://restcountries.eu/rest/v2/currency/${code}`);
+  }
 }

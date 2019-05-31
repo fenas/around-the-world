@@ -7,6 +7,7 @@ import { HomeComponentComponent } from './home-component/home-component.componen
 import { ListViewComponent } from './list-view/list-view.component';
 import { DetailsViewComponent } from './details-view/details-view.component';
 import { HttpClientModule } from '@angular/common/http';
+import { WorldMapComponent } from './world-map/world-map.component';
 // import { FontAwesomeModule } from 'angular-fontawesome';
 
 @NgModule({
@@ -14,7 +15,8 @@ import { HttpClientModule } from '@angular/common/http';
     AppComponent,
     HomeComponentComponent,
     ListViewComponent,
-    DetailsViewComponent
+    DetailsViewComponent,
+    WorldMapComponent
   ],
   imports: [
     HttpClientModule,

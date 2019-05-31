@@ -1,3 +1,66 @@
-<p>
-  details-view works!
-</p>
+<!-- News jumbotron -->
+<div
+  class="jumbotron text-center hoverable p-4"
+  *ngFor="let country of countryDetails"
+>
+  <!-- Grid row -->
+  <div class="row">
+    <!-- Grid column -->
+    <div class="col-md-2 offset-md-1 mx-3 my-3">
+      <!-- Featured image -->
+      <div class="view overlay">
+        <img
+          src="{{ country.flag }}"
+          class="img-fluid"
+          alt="Sample image for first version of blog listing"
+        />
+        <a>
+          <div class="mask rgba-white-slight"></div>
+        </a>
+      </div>
+    </div>
+    <!-- Grid column -->
+
+    <!-- Grid column -->
+    <div class="col-md-6 text-md-left ml-3 mt-3">
+      <!-- Excerpt -->
+
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+          <h4>{{ country.name }}</h4>
+        </li>
+
+        <li class="list-group-item">capital: {{ country.capital }}</li>
+
+        <li class="list-group-item">
+          region: <span>{{ country.region }}</span>
+          <hr />
+          subregion:
+          <span>{{ country.subregion }}</span> <br />
+          <hr />
+          <!-- <li class="list-group-item"> </li> -->
+          regional bloc: <span>{{ country.regionalBlocs[0]?.name }}</span>
+        </li>
+        <li class="list-group-item">
+          currency: <span>{{ country.currencies[0].name }}</span>
+          <hr />
+          Population:
+          <span>
+            {{ country.population }}
+          </span>
+        </li>
+        <li class="list-group-item">
+          languages:
+          <span>{{ country.languages[0].name }}</span>
+        </li>
+        <li class="list-group-item">
+          timezones: <span>{{ country.timezones }}</span>
+        </li>
+      </ul>
+    </div>
+    <!-- Grid column -->
+
+    <!-- Grid row -->
+  </div>
+  <!-- News jumbotron -->
+</div>

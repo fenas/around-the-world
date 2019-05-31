@@ -1,38 +1,69 @@
-<div class="cardsection">
+<header class="header">
+  <!-- Material input -->
+  <div class="md-form">
+    <input type="text" id="inputPrefilledEx" class="form-control" />
+    <label for="inputPrefilledEx" class="d-none d-sm-block"
+      >Search for a country.</label
+    >
+    <button type="button" class="btn btn-unique btn-sm">
+      <i class="fas fa-arrow-right"></i>
+    </button>
+  </div>
+
+  <p>Filters: none</p>
+</header>
+
+<div class="cardsection container">
   <!--Card-->
-  <mdb-card *ngFor="let country of countryList">
+  <div class="card  z-depth-1" *ngFor="let country of countryList">
     <!--Card image-->
-    <div class="view overlay waves-light" mdbWavesEffect>
+    <div class="view overlay" mdbWavesEffect>
       <img src="{{ country.flag }}" class="rounded-circle" />
+
+      <h6 class="name">{{ country.name }}</h6>
     </div>
-    <!-- <div class="">
-      <img
-        src="https://mdbootstrap.com/img/Photos/Avatars/img%20%2831%29.jpg"
-        class="rounded-circle"
-      />
-    </div> -->
-    <!--/.Card image-->
 
     <!--Card content-->
-    <mdb-card-body>
-      <!--Title-->
-      <mdb-card-title>
-        <h6>{{ country.name }}</h6>
-      </mdb-card-title>
+    <!-- <mdb-card-body> -->
 
-      <hr />
+    <div class="card-body">
+      <div class="capital mb-1">
+        <p>capital:</p>
+        <p class="ml-1">{{ country.capital }}</p>
+      </div>
 
-      <!--Text-->
-      <mdb-card-text> </mdb-card-text>
+      <div class="currency mb-1">
+        <span>currency:</span>
+        <span
+          class=" currencyName ml-1 "
+          (click)="langFilter(country.currencies[0].code)"
+          >{{ country.currencies[0].name }}</span
+        >
+      </div>
 
-      <a class="link-text">
-        <h6 class="waves-light" mdbWavesEffect>
-          Read more
-          <i class="fas fa-chevron-right waves-light" mdbWavesEffect></i>
-        </h6>
-      </a>
-    </mdb-card-body>
+      <div class="langdiv mb-1">
+        <span> languages:</span>
+        <div class="langs ml-1">
+          <span class="">{{ country.languages[0].name }}</span>
+          <span class="">{{ country.languages[1]?.name }}</span>
+          <span class="">{{ country.languages[2]?.name }}</span>
+        </div>
+      </div>
+
+      <div class="subregion">
+        <span>subregion:</span> <span>{{ country.subregion }}</span>
+      </div>
+
+      <button
+        type="button"
+        class="btn btn-unique btn-sm mt-3 detailsbutton"
+        [routerLink]="['/details', country.name]"
+      >
+        More details
+      </button>
+    </div>
+    <!-- </mdb-card-body> -->
     <!--/.Card content-->
-  </mdb-card>
+  </div>
   <!--/.Card-->
 </div>

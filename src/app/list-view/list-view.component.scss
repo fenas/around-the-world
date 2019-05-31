@@ -1,18 +1,131 @@
-mdb-card {
-  height: 200px;
-  width: 300px;
-  margin-bottom: 10px;
+.header {
+  // width: 100vw;
+  height: 150px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: sticky;
+  z-index: 1;
+}
+
+.card {
+  // height: 400px;
+  width: 220px;
+  margin: 2px;
+  margin-top: 20px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.md-form {
+  width: 40%;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+.card-body {
+  // height: 60%;
+  background-color: whitesmoke;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  flex-direction: column;
+  padding: 10px;
+  // margin: 10px;
+  line-height: 20px;
+  // border-radius: 1em;
+}
+
+.view {
+  // height: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+.name {
+  text-align: center;
+  margin: 2px;
+}
+
+p {
+  margin: 0;
+  padding: 0;
 }
 
 .cardsection {
-  height: 100vh;
-  width: 100vw;
+  // height: 100vh;
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+  // position: static;
+  background-color: rgb(161, 153, 153);
+  font-size: 15px;
 }
 
 img {
-  width: 60%;
+  padding: 3px;
+  width: 70px;
   height: 70px;
+}
+
+.langdiv {
+  width: 100%;
+  display: inline-flex;
+  justify-content: space-between;
+}
+
+.langs {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  // margin: 0px 5px;
+  color: purple;
+  cursor: pointer;
+  text-align: start;
+}
+
+.currency {
+  width: 100%;
+  display: inline-flex;
+  justify-content: space-between;
+}
+
+.currencyName {
+  color: purple;
+  cursor: pointer;
+  text-align: start;
+  padding: 0;
+  margin: 0;
+}
+
+.capital {
+  width: 100%;
+  display: inline-flex;
+  justify-content: space-between;
+  // align-items: start;
+  text-align: start;
+}
+
+.subregion {
+  width: 100%;
+  display: inline-flex;
+  justify-content: space-between;
+  // align-items: center;
+}
+
+span {
+  text-align: center;
+}
+
+.detailsbutton {
+  align-self: center;
 }
