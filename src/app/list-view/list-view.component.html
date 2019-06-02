@@ -1,16 +1,41 @@
-<header class="header">
-  <!-- Material input -->
-  <div class="md-form">
-    <input type="text" id="inputPrefilledEx" class="form-control" />
-    <label for="inputPrefilledEx" class="d-none d-sm-block"
-      >Search for a country.</label
-    >
-    <button type="button" class="btn btn-unique btn-sm">
-      <i class="fas fa-arrow-right"></i>
-    </button>
+<nav Class="navbar z-depth-1">
+  <div>
+    <h6 class="m-0 d-none d-sm-inline home" [routerLink]="['/home']">
+      Around the world
+    </h6>
   </div>
+  <span [routerLink]="['/home']" class="home">Home</span>
+</nav>
+<header class="header z-depth-1">
+  <!-- Material input -->
 
-  <p>Filters: none</p>
+  <div class="inputAndHints">
+    <button class="back" (click)="Back()" *ngIf="buttonOn">
+      back
+    </button>
+
+    <div class="md-form " [formGroup]="form">
+      <div class="inputdiv">
+        <input
+          type="text"
+          id="inputPrefilledEx"
+          class="form-control"
+          formControlName="search"
+          placeholder="Search for a country"
+        />
+        <!-- <span class="text-muted">Search For a Country</span> -->
+        <p *ngIf="regionOn" class="filter">Region: {{ regionName }}</p>
+        <p *ngIf="currencyFilter" class="filter">Currency Filter: {{ cur }}</p>
+
+        <p *ngIf="languageFilter" class="filter">Language Filter: {{ lang }}</p>
+      </div>
+      <button class="but1" (click)="onClick()">
+        <i class="fas fa-arrow-right"></i>
+      </button>
+    </div>
+
+    <p>{{ form.value.search }}</p>
+  </div>
 </header>
 
 <div class="cardsection container">
@@ -36,7 +61,10 @@
         <span>currency:</span>
         <span
           class=" currencyName ml-1 "
-          (click)="langFilter(country.currencies[0].code)"
+          (click)="
+            curFilter(country.currencies[0].code, country.currencies[0].name)
+          "
+          (click)="frame.show()"
           >{{ country.currencies[0].name }}</span
         >
       </div>
@@ -44,9 +72,39 @@
       <div class="langdiv mb-1">
         <span> languages:</span>
         <div class="langs ml-1">
-          <span class="">{{ country.languages[0].name }}</span>
-          <span class="">{{ country.languages[1]?.name }}</span>
-          <span class="">{{ country.languages[2]?.name }}</span>
+          <span
+            class=""
+            (click)="basicModal.show()"
+            (click)="
+              LangFilter(
+                country.languages[0].iso639_1,
+                country.languages[0].name
+              )
+            "
+            >{{ country.languages[0].name }}</span
+          >
+          <span
+            class=""
+            (click)="basicModal.show()"
+            (click)="
+              LangFilter(
+                country.languages[1].iso639_1,
+                country.languages[1]?.name
+              )
+            "
+            >{{ country.languages[1]?.name }}</span
+          >
+          <span
+            class=""
+            (click)="basicModal.show()"
+            (click)="
+              LangFilter(
+                country.languages[2].iso639_1,
+                country.languages[2]?.name
+              )
+            "
+            >{{ country.languages[2]?.name }}</span
+          >
         </div>
       </div>
 
@@ -66,4 +124,65 @@
     <!--/.Card content-->
   </div>
   <!--/.Card-->
+</div>
+
+<!-- <button
+  type="button"
+  mdbBtn
+  color="default"
+  rounded="true"
+  data-toggle="modal"
+  data-target="#basicExample"
+  (click)="frame.show()"
+  (click)="modal(hello)"
+  mdbWavesEffect
+>
+  Launch Modal
+</button> -->
+
+<div
+  mdbModal
+  #frame="mdbModal"
+  class="modal fade top"
+  id="frameModalTop"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="myModalLabel"
+  aria-hidden="true"
+>
+  <div
+    class="modal-dialog modal-notify modal-success side-modal modal-top-right"
+    role="document"
+  >
+    <!--Content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title w-100">Currency Filter Applied: {{ cur }}</h4>
+      </div>
+      <!--/.Content-->
+    </div>
+  </div>
+</div>
+
+<div
+  mdbModal
+  #basicModal="mdbModal"
+  class="modal fade top"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="myBasicModalLabel"
+  aria-hidden="true"
+>
+  <div
+    class="modal-dialog modal-success modal-notify side-modal modal-top-right"
+    role="document"
+  >
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title w-100" id="myModalLabel">
+          Language Filter Applied: {{ lang }}
+        </h4>
+      </div>
+    </div>
+  </div>
 </div>

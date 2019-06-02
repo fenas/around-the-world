@@ -1,17 +1,23 @@
+<nav Class="navbar z-depth-1">
+  <div>
+    <h6 class="m-0 d-none d-sm-inline home" [routerLink]="['/home']">
+      Around the world
+    </h6>
+  </div>
+  <span [routerLink]="['/home']" class="home">Home</span>
+</nav>
+
 <!-- News jumbotron -->
-<div
-  class="jumbotron text-center hoverable p-4"
-  *ngFor="let country of countryDetails"
->
+<div class=" text-center p-4" *ngFor="let country of countryDetails">
   <!-- Grid row -->
-  <div class="row">
+  <div class="row ">
     <!-- Grid column -->
     <div class="col-md-2 offset-md-1 mx-3 my-3">
       <!-- Featured image -->
       <div class="view overlay">
         <img
           src="{{ country.flag }}"
-          class="img-fluid"
+          class="img-fluid z-depth-1"
           alt="Sample image for first version of blog listing"
         />
         <a>
@@ -22,7 +28,7 @@
     <!-- Grid column -->
 
     <!-- Grid column -->
-    <div class="col-md-6 text-md-left ml-3 mt-3">
+    <div class="col-md-6 text-md-left ml-3 mt-3 z-depth-1">
       <!-- Excerpt -->
 
       <ul class="list-group list-group-flush">
@@ -33,7 +39,10 @@
         <li class="list-group-item">capital: {{ country.capital }}</li>
 
         <li class="list-group-item">
-          region: <span>{{ country.region }}</span>
+          region:
+          <span class="linked" (click)="regionSearch(country.region)">{{
+            country.region
+          }}</span>
           <hr />
           subregion:
           <span>{{ country.subregion }}</span> <br />
@@ -42,7 +51,13 @@
           regional bloc: <span>{{ country.regionalBlocs[0]?.name }}</span>
         </li>
         <li class="list-group-item">
-          currency: <span>{{ country.currencies[0].name }}</span>
+          currency:
+          <span
+            class="linked"
+            (click)="currencySearch(country.currencies[0].code)"
+            >{{ country.currencies[0].name }}</span
+          >
+
           <hr />
           Population:
           <span>
@@ -51,15 +66,25 @@
         </li>
         <li class="list-group-item">
           languages:
-          <span>{{ country.languages[0].name }}</span>
+          <span class="linked">{{ country.languages[0].name }}</span>
+          <span class="linked"> {{ country.languages[1]?.name }}</span>
+          <span class="linked"> {{ country.languages[2]?.name }}</span>
         </li>
         <li class="list-group-item">
           timezones: <span>{{ country.timezones }}</span>
+        </li>
+        <li class="list-group-item">
+          Native name: <span>{{ country.nativeName }}</span>
         </li>
       </ul>
     </div>
     <!-- Grid column -->
 
+    <!-- <div>
+      <agm-map [latitude]="lat" [longitude]="lng">
+        <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+      </agm-map>
+    </div> -->
     <!-- Grid row -->
   </div>
   <!-- News jumbotron -->

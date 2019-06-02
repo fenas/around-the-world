@@ -30,7 +30,15 @@ export class MainHttpService {
     );
   }
 
-  filterByLang(code: string) {
+  filterByCur(code: string) {
     return this.http.get(`https://restcountries.eu/rest/v2/currency/${code}`);
+  }
+
+  filterByLang(code: string) {
+    return this.http.get(`https://restcountries.eu/rest/v2/lang/${code}`);
+  }
+
+  searchCountry(name: string) {
+    return this.http.get(`https://restcountries.eu/rest/v2/name/${name}`);
   }
 }

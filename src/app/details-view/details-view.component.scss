@@ -1,0 +1,21 @@
+.navbar {
+  width: 100vw;
+  height: 50px;
+  background-color: #880e4f;
+  color: white;
+  // position: fixed;
+  display: flex;
+  // justify-content: center;
+  padding-left: 118px;
+  padding-right: 118px;
+}
+
+agm-map {
+  width: 300px;
+  height: 300px;
+}
+
+.linked {
+  color: #880e4f;
+  cursor: pointer;
+}

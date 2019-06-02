@@ -10,11 +10,12 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponentComponent implements OnInit {
   constructor(private http: MainHttpService, private router: Router) {}
 
-  onClick($event) {
-    const regionName = $event.path[0].innerText.toLowerCase();
-    console.log(regionName);
+  onClick(region: string) {
+    // const regionName = $event.path[0].innerText.toLowerCase();
+    // console.log(regionName);
     // this.http.getCountriesByRegion(regionName);
-    this.router.navigate(['/list', regionName]);
+    console.log(region);
+    this.router.navigate(['/list', region]);
   }
 
   ngOnInit() {}
