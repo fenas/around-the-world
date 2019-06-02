@@ -24,7 +24,7 @@
           placeholder="Search for a country"
         />
         <!-- <span class="text-muted">Search For a Country</span> -->
-        <p *ngIf="regionOn" class="filter">Region: {{ regionName }}</p>
+        <p *ngIf="regionOn" class="filter">Region: {{ queryName }}</p>
         <p *ngIf="currencyFilter" class="filter">Currency Filter: {{ cur }}</p>
 
         <p *ngIf="languageFilter" class="filter">Language Filter: {{ lang }}</p>
@@ -34,7 +34,7 @@
       </button>
     </div>
 
-    <p>{{ form.value.search }}</p>
+    <!-- <p>{{ form.value.search }}</p> -->
   </div>
 </header>
 
@@ -89,7 +89,7 @@
             (click)="
               LangFilter(
                 country.languages[1].iso639_1,
-                country.languages[1]?.name
+                country.languages[0].name
               )
             "
             >{{ country.languages[1]?.name }}</span
@@ -100,7 +100,7 @@
             (click)="
               LangFilter(
                 country.languages[2].iso639_1,
-                country.languages[2]?.name
+                country.languages[0].name
               )
             "
             >{{ country.languages[2]?.name }}</span

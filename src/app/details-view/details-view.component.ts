@@ -32,19 +32,10 @@ export class DetailsViewComponent implements OnInit {
   }
 
   currencySearch(code: string) {
-    this.http.filterByCur(code).subscribe(result => {
-      this.router.navigate([`list/${code}`]);
-      // this.countryList = result;
-      // console.log(this.countryList);
-      // this.languageFilter = false;
-      // this.currencyFilter = true;
-      // console.log(cur);
-      // this.cur = cur;
-      // this.buttonOn = true;
-      // this.regionOn = false;
-      // setTimeout(() => {
-      //   this.filterOn = false;
-      // }, 3000);
-    });
+    this.router.navigate([`list/${code}`]);
+  }
+
+  languageSearch(code: string) {
+    this.router.navigate([`list/${code}`]);
   }
 }

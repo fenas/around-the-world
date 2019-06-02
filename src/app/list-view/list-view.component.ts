@@ -45,7 +45,7 @@ export class ListViewComponent implements OnInit {
   // // this.router.navigate(['/list', regionName]);
   //   }
 
-  curFilter(code: string, cur: string) {
+  curFilter(code: string, name?: string) {
     // const lang = $event.path[0].innerText;
     this.http.filterByCur(code).subscribe(result => {
       this.router.navigate([`list/${code}`]);
@@ -53,8 +53,9 @@ export class ListViewComponent implements OnInit {
       console.log(this.countryList);
       this.languageFilter = false;
       this.currencyFilter = true;
-      console.log(cur);
-      this.cur = cur;
+      // console.log(cur);
+      this.cur = name;
+      // console.log(this.cur);
       this.buttonOn = true;
       this.regionOn = false;
       // setTimeout(() => {
@@ -63,7 +64,7 @@ export class ListViewComponent implements OnInit {
     });
   }
 
-  LangFilter(code: string, lang: string) {
+  LangFilter(code: string, name?: string) {
     console.log(code);
     this.http.filterByLang(code).subscribe(result => {
       this.router.navigate([`list/${code}`]);
@@ -71,7 +72,7 @@ export class ListViewComponent implements OnInit {
       console.log(this.countryList);
       this.currencyFilter = false;
       this.languageFilter = true;
-      this.lang = lang;
+      this.lang = name;
       this.buttonOn = true;
       this.regionOn = false;
 
@@ -115,9 +116,12 @@ export class ListViewComponent implements OnInit {
         .subscribe(result => {
           console.log(result);
           this.countryList = result;
+          // console.log();
           console.log(this.countryList);
         });
     }
+
+    // console.log(this.cur);
   }
 
   Back() {
@@ -128,9 +132,12 @@ export class ListViewComponent implements OnInit {
   }
 
   ngOnInit() {
-    // if ( this.queryName.length === 2 ) {
-    //   this.LangFilter(this.queryName, this.);
-    // }
-    this.getCountries();
+    if (this.queryName.length === 2) {
+      this.LangFilter(this.queryName);
+    } else if (this.queryName.length === 3) {
+      this.curFilter(this.queryName);
+    } else {
+      this.getCountries();
+    }
   }
 }
