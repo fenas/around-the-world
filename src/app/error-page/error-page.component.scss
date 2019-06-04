@@ -1,0 +1,30 @@
+button {
+  background-color: #880e4f;
+}
+h1 {
+  font-size: 50px;
+  font-weight: bolder;
+  color: #880e4f;
+}
+
+.error {
+  width: 50%;
+  margin: 0;
+  padding-left: 50px;
+  padding-top: 50px;
+  width: 40%;
+}
+
+.svg {
+  width: 40%;
+  height: 400px;
+  padding-right: 50px;
+  padding-top: 50px;
+}
+
+.section {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}

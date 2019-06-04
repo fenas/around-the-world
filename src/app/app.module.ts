@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { WorldMapComponent } from './world-map/world-map.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AgmCoreModule } from '@agm/core';
+import { ErrorPageComponent } from './error-page/error-page.component';
 
 // import { FontAwesomeModule } from 'angular-fontawesome';
 
@@ -19,7 +20,8 @@ import { AgmCoreModule } from '@agm/core';
     HomeComponentComponent,
     ListViewComponent,
     DetailsViewComponent,
-    WorldMapComponent
+    WorldMapComponent,
+    ErrorPageComponent
   ],
   imports: [
     HttpClientModule,
